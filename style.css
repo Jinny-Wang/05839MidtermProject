@@ -21,6 +21,14 @@
 /* --------------------------
 :: 1.0 Base CSS Start
 -------------------------- */
+:root{
+    --neutral: #EFEFEF;
+    --sky: #CAEBF2;
+    --watermelon : #FF383F;
+    --carbon: #A9A9A9;
+    --textcolor: #262626;
+    --navbarcolor:#fbfbfd;
+}
 
 * {
     margin: 0;
@@ -381,7 +389,7 @@ img {
 }
 
 .menu_area #nav .nav-link {
-    color: #fff;
+    color: var(--textcolor);
     display: block;
     font-size: 15px;
     -webkit-transition-duration: 500ms;
@@ -403,7 +411,7 @@ img {
 .menu_area #nav .nav-link:hover,
 .menu_area #nav .nav-item.active .nav-link,
 .menu_area .dropdown-item:hover {
-    color: #4a7aec;
+    color: var(--watermelon);
 }
 
 .login-register-btn a {
@@ -426,7 +434,11 @@ img {
 }
 
 .navbar-custom{
-    background-color: #000000;
+    background-color: var(--navbarcolor);
+}
+
+.navbar-brand{
+    color: var(--textcolor);
 }
 
 /* Search Form CSS */
@@ -464,7 +476,7 @@ img {
 
 .header_area.sticky {
     /*background-color: #25499f;*/
-    background-color: #000000;
+    background-color: var(--navbarcolor);  
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     height: 80px;
     position: fixed;
@@ -479,10 +491,10 @@ img {
 .welcome_area {
     position: relative;
     z-index: 2;
-    height: 1200px;
+    height: 700px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: 50% 80%;
 }
 
 .hero-slides {
@@ -491,7 +503,8 @@ img {
 }
 
 .single-hero-slide {
-    height: 1200px;
+    /*height: 1200px;*/
+    height: 600px;
     width: 100%;
     position: relative;
     z-index: 1;
@@ -499,16 +512,24 @@ img {
 
 .hero-slide-content h2 {
     font-size: 60px;
-    color: #fff;
+    /*color: #fff;*/
+    color:#000000;
     line-height: 1.8;
     vertical-align:middle;
+    padding: 2rem;
     margin-bottom: 5rem;
+    position: relative;
+    z-index: 99;
 }
 
 .hero-slide-content h4 {
-    color: #fff;
+    /*color: #fff;*/
+    color:#000000;
     font-weight: 400;
+    padding: 2rem;
     margin-bottom: 3rem;
+    position: relative;
+    z-index: 99;
     /*margin-bottom: 0;*/
 }
 
@@ -543,6 +564,15 @@ img {
 .hero-slides .owl-prev:hover,
 .hero-slides .owl-next:hover {
     background-color: #4a7aec;
+}
+
+.transparent_mask{
+    background: rgba(255, 255, 255, 0.4);
+    /*opacity: 0.6;*/
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+
 }
 
 /* -------------------------
@@ -608,7 +638,7 @@ img {
 ------------------------- */
 
 .mosh-features-area {
-    background-color: #211b31;
+    background-color: var(--neutral);
     position: relative;
     z-index: 1;
 }
