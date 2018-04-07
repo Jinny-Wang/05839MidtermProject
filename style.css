@@ -425,6 +425,10 @@ img {
     transition-duration: 500ms;
 }
 
+.navbar-custom{
+    background-color: #000000;
+}
+
 /* Search Form CSS */
 
 .search-form-area {
@@ -459,7 +463,8 @@ img {
 /* Sticky CSS */
 
 .header_area.sticky {
-    background-color: #25499f;
+    /*background-color: #25499f;*/
+    background-color: #000000;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     height: 80px;
     position: fixed;
@@ -496,12 +501,15 @@ img {
     font-size: 60px;
     color: #fff;
     line-height: 1.8;
+    vertical-align:middle;
+    margin-bottom: 5rem;
 }
 
 .hero-slide-content h4 {
     color: #fff;
     font-weight: 400;
-    margin-bottom: 0;
+    margin-bottom: 3rem;
+    /*margin-bottom: 0;*/
 }
 
 .hero-slide-content .slide-img {
