@@ -38,7 +38,8 @@ function setupScatterPlot(data){
       yCat = "review_scores_rating",
       rCat = "num_reviews_sqrt",
       colorCat = "first_review_year", // TODO : modify later
-      first_review = "first_review";
+      first_review = "first_review",
+      number_of_reviews = "number_of_reviews";
 
   // var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
   //    xMin = d3.min(data, function(d) { return d[xCat]; }),
@@ -76,7 +77,7 @@ function setupScatterPlot(data){
       .attr("class", "d3-tip")
       .offset([-10, 0]) //offset is computed from [top, left]
       .html(function(d) {
-        return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat]+ "<br>" + rCat + ": " +d[rCat] + "<br>"+ first_review + ": " + d[first_review];
+        return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat]+ "<br>" + number_of_reviews + ": " +d[number_of_reviews] + "<br>"+ first_review + ": " + d[first_review];
       });
 
   var zoomBeh = d3.behavior.zoom()
