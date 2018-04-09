@@ -3,7 +3,7 @@ $(document).ready(function() {
     console.log("host script begin");
   
                                 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                                    width = 5000- margin.left - margin.right,
+                                    width = 4000- margin.left - margin.right,
                                     height = 500 - margin.top - margin.bottom;
                                 var xValue = function(d) { return d.availability_365;}, // data -> value
                                     xScale = d3.scale.linear().range([0, width]), // value -> display
@@ -75,7 +75,7 @@ $(document).ready(function() {
                                         .data(data)
                                     .enter().append("circle")
                                         .attr("class", "dot")
-                                        .attr("r", function(d) {return d.host_response_time*2 + 5})
+                                        .attr("r", function(d) {return d.host_response_time*2})
                                         .attr("cx", xMap)
                                         .attr("cy", yMap)
                                         .style("fill", function(d) { return color(cValue(d));}) 
