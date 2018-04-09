@@ -3,7 +3,7 @@ $(document).ready(function() {
     console.log("host script begin");
   
                                 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                                    width = 4000- margin.left - margin.right,
+                                    width = 2000- margin.left - margin.right,
                                     height = 500 - margin.top - margin.bottom;
                                 var xValue = function(d) { return d.availability_365;}, // data -> value
                                     xScale = d3.scale.linear().range([0, width]), // value -> display
