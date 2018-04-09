@@ -103,24 +103,24 @@
                 <div class="col-12 col-md-6">
                     <div class="mosh-about-us-content">
 
-                        <div class="section-heading">
+                        <div class="data_collection">
                             
                             <h2>Data Source</h2>
                             <p>The listings data are downloaded from <a href="http://insideairbnb.com">inside airbnb.</a> We choose to analyze data from the New York City scrapted at March 4th 2018, which contains 48852 listings across NYC.  For computational efficiency only top 3000 listings are chosen for visualization. </p>
                             <p>Apart from the listings data, we also scraped data about things-to-do in NYC, including the top 30  places for food , sightseeing, nightlife , nature and park. The data are obtaind from Airbnb's recommendation <a href="https://airbnb.com/things-to-do/new-york">here</a>. </p>
                         </div>
-                        <div class="section-heading">
+                        <div class="data_collection">
                             
                             <h2>Correctness</h2>
                             <p>There are no invalid values in the listings data and things-to-do data. The numbers fields are in resonable range. </p>
                         </div>
 
-                        <div class="section-heading">
+                        <div class="data_collection">
                             <h2>Coherent</h2>
                             <p> The distribution of data is pretty reasonable. For example, most of the listings have verly few number of reviews per month, where as only very rare listings have extremely many number of review per month.  The distribution is very skewed which is explanable as the data are genreated from a platform serving users with various behavior.</p>
                         </div>
 
-                        <div class="section-heading">
+                        <div class="data_collection">
                             
                             <h2>Cleaness</h2>
                             <p> For things-to-do data, as some of the places did not come with address in the orignal website, we need to manually add several addresses. And we also need to append "NYC" to scrapted address to correctly convert them to latitute/longitude using python geopy library. 
@@ -128,7 +128,7 @@
                              </p>
                         </div>
 
-                        <div class="section-heading">
+                        <div class="data_collection">
                             
                             <h2>Accountability</h2>
                             <p>The chosen visualization are able to explained some of the underlying factors that influcence popularity. </p>

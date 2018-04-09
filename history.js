@@ -23,8 +23,8 @@ var timeEnd = null;
 
 function setupScatterPlot(data){
   var margin = { top: 50, right: 300, bottom: 50, left: 50 },
-    outerWidth = 1550,
-    outerHeight = 750,
+    outerWidth = 1250,
+    outerHeight = 650,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
