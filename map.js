@@ -236,17 +236,17 @@ function loadSite(siteFile) {
             .attr('xlink:href', function(d) {
                 if (d.type == "food") {
                     //                    console.log("food");
-                    return "../image/food.png"
+                    return "food.png"
                 } else if (d.type == "sightseeing") {
                     //                    console.log("sightseeing");
-                    return "../image/sightseeing.png";
+                    return "sightseeing.png";
                 } else if (d.type == "nightlife") {
                     //                    console.log("nightlifet");
-                    return "../image/nightlife.png";
+                    return "nightlife.png";
                 } else {
                     // park 
                     //                    console.log("park");
-                    return "../image/park.png";
+                    return "park.png";
                 }
             })
             .on("mouseover", function(d) {
@@ -282,3 +282,58 @@ function loadSite(siteFile) {
         }
     });
 }
+
+$(document).ready(function(){
+
+    var header = document.getElementById("myDIV");
+    console.log(header);
+        //        console.log(header); 
+        var active_block = header.getElementsByClassName("block_active")[0]
+            .addEventListener('click', function() {
+                var current = document.getElementsByClassName("block_active");
+                //                console.log(current);
+                current[0].className = current[0].className.replace("_active", "");;
+                this.className += "_active";
+                //                console.log("load sites");
+                // remove all the exisitng listings points
+                var feature = g.selectAll("image")
+                    .remove();
+                if (this.id == 'food') {
+                    loadSite("map_food.csv");
+                } else if (this.id == 'sightseeing') {
+                    loadSite("map_sightseeing.csv");
+                } else if (this.id == 'nightlife') {
+                    loadSite("map_nightlife.csv");
+                } else if (this.id == 'park') {
+                    loadSite("map_parks_nature.csv");
+                }
+            });
+        var blocks = header.getElementsByClassName("block");
+        //        console.log(blocks.length); 
+        for (var i = 0; i < blocks.length; i++) {
+            blocks[i].addEventListener('click', function() {
+                var current = document.getElementsByClassName("block_active");
+                //                console.log(current);
+                current[0].className = current[0].className.replace("_active", "");;
+                this.className += "_active";
+                //                console.log("load sites");
+                // remove all the exisitng listings points
+                var feature = g.selectAll("image")
+                    .remove();
+                if (this.id == 'food') {
+                    loadSite("map_food.csv");
+                } else if (this.id == 'sightseeing') {
+                    loadSite("map_sightseeing.csv");
+                } else if (this.id == 'nightlife') {
+                    loadSite("map_nightlife.csv");
+                } else if (this.id == 'park') {
+                    loadSite("map_parks_nature.csv");
+                }
+            })
+        }
+
+
+        //var city = "New York City";
+        setupMap([40.7369, -73.9700], 11, 14);
+        
+});
