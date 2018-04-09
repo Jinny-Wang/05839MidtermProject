@@ -1854,6 +1854,15 @@ rect.history{
   left: 0;
 }
 
+#scatter{
+    width: 80%;
+    margin-left: 10%;
+}
+
+#timeline{
+    margin-left: 10%;
+}
+
 /* -----------------------
 :: ids_viz_history end
 ----------------------- */

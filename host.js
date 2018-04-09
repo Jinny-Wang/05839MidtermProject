@@ -38,7 +38,7 @@ $(document).ready(function() {
                                         d.host_identity_verified = d.host_identity_verified;
                                         d.availability_365 = d.availability_365;
                                         d.ratings = +d.review_scores_rating;
-                        console.log(d);
+                        //console.log(d);
                                     });
 
   // don't want dots overlapping axis, so add in buffer to data domain

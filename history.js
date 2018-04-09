@@ -23,8 +23,8 @@ var timeEnd = null;
 
 function setupScatterPlot(data){
   var margin = { top: 50, right: 300, bottom: 50, left: 50 },
-    outerWidth = 2050,
-    outerHeight = 1000,
+    outerWidth = 1550,
+    outerHeight = 750,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
@@ -146,27 +146,29 @@ function setupScatterPlot(data){
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return 1.5*d[rCat]; })
+      .attr("r", function (d) { return 2.5*d[rCat]; })
       .attr("transform", transform)
       .style("fill", function(d) { return color(d[colorCat]); })
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
   var legend = svg.selectAll(".legend")
-      .data(color.domain())
+      .data(color.domain().sort())
     .enter().append("g")
       .classed("legend", true)
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("circle")
-      .attr("r", 3.5)
+      .attr("r", 7.5)
       .attr("cx", width + 20)
-      .attr("fill", color);
+      .attr("fill", color)
+      .style("margin", "2px");
 
   legend.append("text")
       .attr("x", width + 26)
       .attr("dy", ".35em")
-      .text(function(d) { return d; });
+      .text(function(d) {  console.log(d);return d; })
+      .style("margin","2px");
 
   d3.select("input").on("click", change);
   drawTimeline(data);
@@ -346,7 +348,8 @@ function loadListings(listingsFile) {
             // d.last_review = d.last_review == "" ? null : d3.time.format('%Y-%m-%d').parse(d.last_review);
             // d.last_review_month = d.last_review ? d3.time.month(d.last_review) : null;
             d.first_review = d.first_review=="" ? null : d3.time.format('%Y-%m-%d').parse(d.first_review);
-            d.first_review_year =  d.first_review ? d3.time.year(d.first_review) : null;
+            //d.first_review_year =  d.first_review ? d3.time.year(d.first_review) : null;
+            d.first_review_year = d.first_review.getFullYear();
             //d.availability_365 = +d.availability_365;
             // d.minimum_nights = +d.minimum_nights;
             // d.calculated_host_listings_count = +d.calculated_host_listings_count;
@@ -370,7 +373,7 @@ function loadListings(listingsFile) {
 
 
 $(document).ready(function() {
-  loadListings("listings_history_dropna_sqrt_15000.csv")
+  loadListings("listings_history_dropna_sqrt_3000.csv")
 });
 
 
