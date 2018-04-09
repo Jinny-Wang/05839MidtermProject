@@ -1872,6 +1872,10 @@ rect.history{
     color: #000000;
 }
 
+path.domain{
+    color: var(--sky);
+}
+
 /* -----------------------
 :: ids_viz_history end
 ----------------------- */

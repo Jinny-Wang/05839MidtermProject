@@ -273,9 +273,9 @@ function setupScatterPlot(data){
                     .datum(bins)
                     .attr("class", "area")
                     .attr("d", area)
-                    .attr("fill","#A9A9A9")
+                    .attr("fill","#CAEBF2")
                     .attr("fill-opacity",1)
-                    .attr("stroke","#A9A9A9");
+                    .attr("stroke","#CAEBF2");
 
 
             //brush
@@ -291,8 +291,9 @@ function setupScatterPlot(data){
                     .attr("height", timelineHeight - 1)
                     .attr("transform", "translate(20,40)")
                     .attr("fill","rgba(255,56,63,0.7)")
-                    .attr("stroke-width", 2)
-                    .attr("stroke", "#A9A9A9");
+                    .attr("stroke-width", 1)
+                    .attr("stroke", "#CAEBF2")
+                    .attr("background-color","#FFFFFF");
 
 
             function updateTime() {
