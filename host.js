@@ -29,7 +29,7 @@ $(document).ready(function() {
                                 var tooltip = d3.select("#host_scatter").append("div")
                                     .attr("class", "tooltip")
                                     .style("opacity", 0);
-                                d3.csv("host_vis.csv", function(error, data) {
+                                d3.csv("host_visualize.csv", function(error, data) {
 
   // change string (from CSV) into number format
                                     data.forEach(function(d) {
