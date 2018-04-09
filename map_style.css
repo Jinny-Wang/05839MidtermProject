@@ -25,6 +25,7 @@ div.tooltip {
     z-index: 10;
 }
 
+/*
 a:link {
     color: green;
     background-color: transparent;
@@ -42,6 +43,7 @@ a:hover {
     background-color: transparent;
     text-decoration: underline;
 }
+*/
 
 /*star rating*/
 
