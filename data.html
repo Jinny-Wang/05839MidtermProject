@@ -82,11 +82,11 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumbContent">
-                        <h2>Data collection process.</h2>
+                        <h2>Data Documentation</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-                                <li class="breadcrumb-item active" aria-current="page">Quality of our data.</li>
+                                <li class="breadcrumb-item active" aria-current="page">Sources and quality of our data.</li>
                             </ol>
                         </nav>
                     </div>
@@ -102,24 +102,36 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
                     <div class="mosh-about-us-content">
+
                         <div class="section-heading">
-                            <p>Correctness</p>
-                            <h2>Something to say</h2>
+                            
+                            <h2>Data Source</h2>
+                            <p>The listings data are downloaded from <a href="http://insideairbnb.com">inside airbnb.</a> We choose to analyze data from the New York City scrapted at March 4th 2018, which contains 48852 listings across NYC.  For computational efficiency only top 3000 listings are chosen for visualization. </p>
+                            <p>Apart from the listings data, we also scraped data about things-to-do in NYC, including the top 30  places for food , sightseeing, nightlife , nature and park. The data are obtaind from Airbnb's recommendation <a href="https://airbnb.com/things-to-do/new-york">here</a>. </p>
+                        </div>
+                        <div class="section-heading">
+                            
+                            <h2>Correctness</h2>
+                            <p>There are no invalid values in the listings data and things-to-do data. The numbers fields are in resonable range. </p>
                         </div>
 
                         <div class="section-heading">
-                            <p>Coherent</p>
-                            <h2>Something to say</h2>
+                            <h2>Coherent</h2>
+                            <p> The distribution of data is pretty reasonable. For example, most of the listings have verly few number of reviews per month, where as only very rare listings have extremely many number of review per month.  The distribution is very skewed which is explanable as the data are genreated from a platform serving users with various behavior.</p>
                         </div>
 
                         <div class="section-heading">
-                            <p>Cleaness</p>
-                            <h2>Something to say</h2>
+                            
+                            <h2>Cleaness</h2>
+                            <p> For things-to-do data, as some of the places did not come with address in the orignal website, we need to manually add several addresses. And we also need to append "NYC" to scrapted address to correctly convert them to latitute/longitude using python geopy library. 
+                            when generating the visualization in <a href="history.html"> history </a> page, the listings with "first_review" as nan are deleted.  As we need the first_review time to reflect the history of the listing. 
+                             </p>
                         </div>
 
                         <div class="section-heading">
-                            <p>Accountability</p>
-                            <h2>Something to say</h2>
+                            
+                            <h2>Accountability</h2>
+                            <p>The chosen visualization are able to explained some of the underlying factors that influcence popularity. </p>
                         </div>
                         <!-- <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio ves tibul. Nec odio vestibulum est mattis effic iturut magna. Pellente sque sita met tellus blandit. Etiam nec odio. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p> -->
                         
@@ -188,10 +200,7 @@
                     <div class="col-12 col-sm-6  footer-description">
                         <div class="single-footer-widget mb-100 ">
                             <h5>Description</h5>
-                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University.
-                                This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University.
-                                This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University.
-                                This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University.
+                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University. We are investigating Airbnb listings data from New York City scraped in March 2018.  Three visualizations are provided in 3 pages to investigate into possible factors that influcence popularty of a listing.  The homepage is showing geolocation of the listings and its popularity. The history page is demonstrating the change of popularity over time.  The host page is looking into how the properties of Airbnb host will influence the listings.
                             </p>
                         </div>
                     </div>
