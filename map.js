@@ -141,7 +141,7 @@ function updateColor(value) {
     d3.selectAll("circle")
         .transition()
         .duration(1000)
-        .style('fill', function(d) {
+        .style('fill', function (d) {
             //            console.log(getColor(value, d)); 
             //            return getColor(value, d);
             return getColor(value, d);
@@ -150,10 +150,10 @@ function updateColor(value) {
 
 function loadListings(listingsFile) {
     // load the csv file of listings
-    d3.csv(listingsFile, function(airbnb_data) {
-        console.log("HAHA: the airbnb data is " + airbnb_data); 
+    d3.csv(listingsFile, function (airbnb_data) {
+        console.log("HAHA: the airbnb data is " + airbnb_data);
         // convert values from string to proper data type
-        airbnb_data.forEach(function(d) {
+        airbnb_data.forEach(function (d) {
             // remove the leading $ sign of price
             // e.g. $216 gives you 216
             d.price = +d.price.replace('$', ''); // coerce to number
@@ -165,7 +165,7 @@ function loadListings(listingsFile) {
             // add a LatLng object to each item in the dataset
             d.LatLng = new L.LatLng(d.latitude, d.longitude);
         })
-//        console.log(airbnb_data[0]);
+        //        console.log(airbnb_data[0]);
         setupListingsData(airbnb_data);
     })
 }
@@ -182,12 +182,12 @@ function setupListingsData(airbnb_data) {
         .data(airbnb_data)
         .enter().append("circle")
         .style("opacity", .6)
-        .style("fill", function(d) {
+        .style("fill", function (d) {
             return getColor(value, d);
         })
         .attr("r", circleRadius)
         .on("mouseover", showHover)
-        .on("mouseout", function(d) {
+        .on("mouseout", function (d) {
             div.transition()
                 .duration(500)
                 .style("opacity", 0);
@@ -198,7 +198,7 @@ function setupListingsData(airbnb_data) {
 
     function update() {
         feature.attr('transform',
-            function(d) {
+            function (d) {
                 return "translate(" +
                     map.latLngToLayerPoint(d.LatLng).x + "," +
                     map.latLngToLayerPoint(d.LatLng).y + ")";
@@ -212,8 +212,8 @@ function loadSite(siteFile) {
     //    console.log("now loading " + siteFile);
     var height = (map.getZoom() >= 14) ? 15 : 25;
     var width = (map.getZoom() >= 14) ? 18 : 30;
-    d3.csv(siteFile, function(site_data) {
-        site_data.forEach(function(d) {
+    d3.csv(siteFile, function (site_data) {
+        site_data.forEach(function (d) {
             //            console.log(d);
             // add a LatLng object to each item in the dataset
             d.LatLng = new L.LatLng(d.latitude, d.longitude);
@@ -226,14 +226,14 @@ function loadSite(siteFile) {
         var feature = g.selectAll("image")
             .data(site_data)
             .enter().append("svg:image")
-            .attr("class", function(d) {
+            .attr("class", function (d) {
                 return d.type;
             })
             .attr('x', -10)
             .attr('y', -15)
             .attr('width', width)
             .attr('height', height)
-            .attr('xlink:href', function(d) {
+            .attr('xlink:href', function (d) {
                 if (d.type == "food") {
                     //                    console.log("food");
                     return "food.png"
@@ -249,7 +249,7 @@ function loadSite(siteFile) {
                     return "park.png";
                 }
             })
-            .on("mouseover", function(d) {
+            .on("mouseover", function (d) {
                 icon_div.transition()
                     .duration(200)
                     .style("opacity", .9);
@@ -263,7 +263,7 @@ function loadSite(siteFile) {
                     .style("top", (d3.event.pageY + 50) + "px")
                     .style("font-color", "white");
             })
-            .on("mouseout", function(d) {
+            .on("mouseout", function (d) {
                 icon_div.transition()
                     .duration(500)
                     .style("opacity", 0);
@@ -273,7 +273,7 @@ function loadSite(siteFile) {
 
         function update() {
             feature.attr('transform',
-                function(d) {
+                function (d) {
                     return "translate(" +
                         map.latLngToLayerPoint(d.LatLng).x + "," +
                         map.latLngToLayerPoint(d.LatLng).y + ")";
@@ -283,57 +283,54 @@ function loadSite(siteFile) {
     });
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
+    //var city = "New York City";
+    setupMap([40.7369, -73.9700], 11, 14);
 
     var header = document.getElementById("myDIV");
     console.log(header);
-        //        console.log(header); 
-        var active_block = header.getElementsByClassName("block_active")[0]
-            .addEventListener('click', function() {
-                var current = document.getElementsByClassName("block_active");
-                //                console.log(current);
-                current[0].className = current[0].className.replace("_active", "");;
-                this.className += "_active";
-                //                console.log("load sites");
-                // remove all the exisitng listings points
-                var feature = g.selectAll("image")
-                    .remove();
-                if (this.id == 'food') {
-                    loadSite("map_food.csv");
-                } else if (this.id == 'sightseeing') {
-                    loadSite("map_sightseeing.csv");
-                } else if (this.id == 'nightlife') {
-                    loadSite("map_nightlife.csv");
-                } else if (this.id == 'park') {
-                    loadSite("map_parks_nature.csv");
-                }
-            });
-        var blocks = header.getElementsByClassName("block");
-        //        console.log(blocks.length); 
-        for (var i = 0; i < blocks.length; i++) {
-            blocks[i].addEventListener('click', function() {
-                var current = document.getElementsByClassName("block_active");
-                //                console.log(current);
-                current[0].className = current[0].className.replace("_active", "");;
-                this.className += "_active";
-                //                console.log("load sites");
-                // remove all the exisitng listings points
-                var feature = g.selectAll("image")
-                    .remove();
-                if (this.id == 'food') {
-                    loadSite("map_food.csv");
-                } else if (this.id == 'sightseeing') {
-                    loadSite("map_sightseeing.csv");
-                } else if (this.id == 'nightlife') {
-                    loadSite("map_nightlife.csv");
-                } else if (this.id == 'park') {
-                    loadSite("map_parks_nature.csv");
-                }
-            })
-        }
-
-
-        //var city = "New York City";
-        setupMap([40.7369, -73.9700], 11, 14);
-        
+    //        console.log(header); 
+    var active_block = header.getElementsByClassName("block_active")[0]
+        .addEventListener('click', function () {
+            var current = document.getElementsByClassName("block_active");
+            //                console.log(current);
+            current[0].className = current[0].className.replace("_active", "");;
+            this.className += "_active";
+            //                console.log("load sites");
+            // remove all the exisitng listings points
+            var feature = g.selectAll("image")
+                .remove();
+            if (this.id == 'food') {
+                loadSite("map_food.csv");
+            } else if (this.id == 'sightseeing') {
+                loadSite("map_sightseeing.csv");
+            } else if (this.id == 'nightlife') {
+                loadSite("map_nightlife.csv");
+            } else if (this.id == 'park') {
+                loadSite("map_parks_nature.csv");
+            }
+        });
+    var blocks = header.getElementsByClassName("block");
+    //        console.log(blocks.length); 
+    for (var i = 0; i < blocks.length; i++) {
+        blocks[i].addEventListener('click', function () {
+            var current = document.getElementsByClassName("block_active");
+            //                console.log(current);
+            current[0].className = current[0].className.replace("_active", "");;
+            this.className += "_active";
+            //                console.log("load sites");
+            // remove all the exisitng listings points
+            var feature = g.selectAll("image")
+                .remove();
+            if (this.id == 'food') {
+                loadSite("map_food.csv");
+            } else if (this.id == 'sightseeing') {
+                loadSite("map_sightseeing.csv");
+            } else if (this.id == 'nightlife') {
+                loadSite("map_nightlife.csv");
+            } else if (this.id == 'park') {
+                loadSite("map_parks_nature.csv");
+            }
+        })
+    }
 });
