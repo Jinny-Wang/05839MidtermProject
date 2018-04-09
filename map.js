@@ -36,11 +36,11 @@ function setupMap(_centreMap, _initialZoom, _neighbourhoodZoom) {
     map._initPathRoot();
 
     // pick the SVG from the map object
-    svg = d3.select("#map").select("svg"),
-        g = svg.append("g");
+    svg = d3.select("#map").select("svg"), 
+    g = svg.append("g");
 
     //    load listings on the map
-    // loadListings('map_listings.csv');
+//     loadListings('map_listings.csv');
     loadListings('map_listings_short.csv');
 }
 
@@ -151,7 +151,7 @@ function updateColor(value) {
 function loadListings(listingsFile) {
     // load the csv file of listings
     d3.csv(listingsFile, function (airbnb_data) {
-        console.log("HAHA: the airbnb data is " + airbnb_data);
+//        console.log("HAHA: the airbnb data is " + airbnb_data);
         // convert values from string to proper data type
         airbnb_data.forEach(function (d) {
             // remove the leading $ sign of price

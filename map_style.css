@@ -68,10 +68,11 @@ div.scrollmenu a.block_active, .block:hover {
 }
 #mySidenav a {
     position: absolute;
-    left: -110px;
+    z-index: 999;
+    left: -120px;
     transition: 0.3s;
     padding: 15px;
-    width: 130px;
+    width: 180px;
     text-decoration: none;
     font-size: 20px;
     opacity: 0.8; 
@@ -84,22 +85,22 @@ div.scrollmenu a.block_active, .block:hover {
 }
 
 #price {
-    top: 200px;
+    top: 1680px;
     background-color: red;
 }
 
 #ratings {
-    top: 260px;
+    top: 1760px;
     background-color: green;
 }
 
 #number_of_reviews {
-    top: 320px;
+    top: 1840px;
     background-color: blue;
 }
 
 #availability {
-    top: 380px;
+    top: 1920px;
     background-color: orange; 
 }
 ''
