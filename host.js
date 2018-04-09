@@ -75,14 +75,15 @@ $(document).ready(function() {
                                         .data(data)
                                     .enter().append("circle")
                                         .attr("class", "dot")
-                                        .attr("r", function(d) {return d.host_response_time+5})
+                                        .attr("r", function(d) {return d.host_response_time*2 + 5})
                                         .attr("cx", xMap)
                                         .attr("cy", yMap)
                                         .style("fill", function(d) { return color(cValue(d));}) 
                                         .on("mouseover", function(d) {
                                             tooltip.transition()
                                                  .duration(200)
-                                                 .style("opacity", .9);
+                                                 .style("opacity", .9)
+                                                 .style("height", 48+"px");
                                             tooltip.html("Host Identity verified: " + d.host_identity_verified + "<br/> (Availability:" + xValue(d) 
                                                  + ", Rating:" + yValue(d) + ")")
                                                  .style("left", (d3.event.pageX + 5) + "px")
