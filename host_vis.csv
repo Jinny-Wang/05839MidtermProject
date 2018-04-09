@@ -1,4 +1,4 @@
-,host_id,host_response_time,host_identity_verified,availability_365,review_scores_rating
+u,host_id,host_response_time,host_identity_verified,availability_365,review_scores_rating
 0,2571,2,TRUE,107,10
 1,2600,1,FALSE,220,9
 2,2758,2,TRUE,316,9
