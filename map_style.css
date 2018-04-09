@@ -50,7 +50,7 @@ a:hover {
 }
 
 div.scrollmenu {
-    background-color: #333;
+    background-color: rgb(55, 51,63);
     overflow: auto;
     white-space: nowrap;
 }
@@ -103,4 +103,3 @@ div.scrollmenu a.block_active, .block:hover {
     top: 1920px;
     background-color: orange; 
 }
-''
