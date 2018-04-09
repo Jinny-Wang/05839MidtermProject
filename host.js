@@ -75,7 +75,7 @@ $(document).ready(function() {
                                         .data(data)
                                     .enter().append("circle")
                                         .attr("class", "dot")
-                                        .attr("r", function(d) {return d.host_response_time*1.5 + 3})
+                                        .attr("r", function(d) {return d.host_response_time*2 + 5})
                                         .attr("cx", xMap)
                                         .attr("cy", yMap)
                                         .style("fill", function(d) { return color(cValue(d));}) 
