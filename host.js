@@ -82,7 +82,8 @@ $(document).ready(function() {
                                         .on("mouseover", function(d) {
                                             tooltip.transition()
                                                  .duration(200)
-                                                 .style("opacity", .9);
+                                                 .style("opacity", .9)
+                                                 .style("height", 24+"px");
                                             tooltip.html("Host Identity verified: " + d.host_identity_verified + "<br/> (Availability:" + xValue(d) 
                                                  + ", Rating:" + yValue(d) + ")")
                                                  .style("left", (d3.event.pageX + 5) + "px")
