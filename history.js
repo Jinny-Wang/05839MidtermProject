@@ -370,7 +370,7 @@ function loadListings(listingsFile) {
 
 
 $(document).ready(function() {
-  loadListings("../data/listings_history_dropna_sqrt_15000.csv")
+  loadListings("listings_history_dropna_sqrt_15000.csv")
 });
 
 
