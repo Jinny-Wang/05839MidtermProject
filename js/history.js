@@ -22,36 +22,36 @@ var timeEnd = null;
 
 
 function setupScatterPlot(data){
-	var margin = { top: 50, right: 300, bottom: 50, left: 50 },
+  var margin = { top: 50, right: 300, bottom: 50, left: 50 },
     outerWidth = 2050,
     outerHeight = 1000,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
-	var x = d3.scale.linear() //linear scale for continuous quantitative data
-	    .range([0, width]).nice(); // a linear mapping!
+  var x = d3.scale.linear() //linear scale for continuous quantitative data
+      .range([0, width]).nice(); // a linear mapping!
 
-	var y = d3.scale.linear()
-	    .range([height, 0]).nice();
+  var y = d3.scale.linear()
+      .range([height, 0]).nice();
 
-	var xCat = "reviews_per_month",
-	    yCat = "review_scores_rating",
-	    rCat = "num_reviews_sqrt",
-	    colorCat = "first_review_year", // TODO : modify later
-	   	first_review = "first_review";
+  var xCat = "reviews_per_month",
+      yCat = "review_scores_rating",
+      rCat = "num_reviews_sqrt",
+      colorCat = "first_review_year", // TODO : modify later
+      first_review = "first_review";
 
-	// var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-	//   	xMin = d3.min(data, function(d) { return d[xCat]; }),
-	//   	xMin = xMin > 0 ? 0 : xMin,
-	//   	yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05, // d3.max(array[,accessor]) -> accessor function is equivalent to calling array.map(accessor)
-	//   	// yMin = d3.min(data, function(d) { return d[yCat]; }),
-	//   	// yMin = yMin > 0 ? 0 : yMin;
-	//   	yMin = 60;
+  // var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
+  //    xMin = d3.min(data, function(d) { return d[xCat]; }),
+  //    xMin = xMin > 0 ? 0 : xMin,
+  //    yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05, // d3.max(array[,accessor]) -> accessor function is equivalent to calling array.map(accessor)
+  //    // yMin = d3.min(data, function(d) { return d[yCat]; }),
+  //    // yMin = yMin > 0 ? 0 : yMin;
+  //    yMin = 60;
 
-	 var xMax =  40 * 1.05,
-	  	xMin = 0,
-	  	yMax = 100 * 1.05, 
-	  	yMin = 60;
+   var xMax =  40 * 1.05,
+      xMin = 0,
+      yMax = 100 * 1.05, 
+      yMin = 60;
 
   x.domain([xMin, xMax]); // set the domain of mapping
   y.domain([yMin, yMax]);
@@ -70,7 +70,7 @@ function setupScatterPlot(data){
 
   //var color = d3.scale.category10(); // color setting of the points!!
   var color = d3.scale.ordinal()
-  			  .range(custom_colors);
+          .range(custom_colors);
 
   var tip = d3.tip()
       .attr("class", "d3-tip")
@@ -96,7 +96,7 @@ function setupScatterPlot(data){
   svg.call(tip);
 
   svg.append("rect")
-  	  .attr("class","history")
+      .attr("class","history")
       .attr("width", width)
       .attr("height", height);
 
@@ -370,7 +370,7 @@ function loadListings(listingsFile) {
 
 
 $(document).ready(function() {
-	loadListings("../data/listings_history_dropna_sqrt_15000.csv")
+  loadListings("../data/listings_history_dropna_sqrt_15000.csv")
 });
 
 
