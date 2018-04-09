@@ -118,13 +118,21 @@
                         <div class="data_collection">
                             <h2>Coherent</h2>
                             <p> The distribution of data is pretty reasonable. For example, most of the listings have verly few number of reviews per month, where as only very rare listings have extremely many number of review per month.  The distribution is very skewed which is explanable as the data are genreated from a platform serving users with various behavior.</p>
+
+                            <p>
+                                Moreover, the value across different columns for one listing is coherent. For example, all the listings with 0 number_of_reviews has first_review time as NaN. 
+                            </p>
                         </div>
 
                         <div class="data_collection">
                             
-                            <h2>Cleaness</h2>
+                            <h2>Completeness</h2>
                             <p> For things-to-do data, as some of the places did not come with address in the orignal website, we need to manually add several addresses. And we also need to append "NYC" to scrapted address to correctly convert them to latitute/longitude using python geopy library. 
-                            when generating the visualization in <a href="history.html"> history </a> page, the listings with "first_review" as nan are deleted.  As we need the first_review time to reflect the history of the listing. 
+                            </p>
+                            <p>
+                            When generating the visualization in <a href="history.html"> history </a> page, the listings with "first_review" as NaN are deleted.  As we need the first_review time to reflect the history of the listing.</p>
+                            <p>
+                            In the given airbnb data, there are three columns related to the price of listings : 'price' indicating the daily price, as well as 'weekly_price' 'monthly_price'.  For some listings, only part of the three columns contain valid values.  So the actual price displayed in the map on <a href="index.html"> home  page</a> is calculated first by daily price. If the daily price it is not avaialbe, then weekly_price/7 or monthly_price/30 will be used as estimated prices.
                              </p>
                         </div>
 
