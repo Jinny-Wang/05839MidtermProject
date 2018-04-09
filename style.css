@@ -1868,6 +1868,10 @@ rect.history{
     margin: 10%;
 }
 
+#history_description p {
+    color: #000000;
+}
+
 /* -----------------------
 :: ids_viz_history end
 ----------------------- */
