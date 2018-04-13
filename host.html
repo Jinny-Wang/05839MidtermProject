@@ -125,6 +125,11 @@
     </div>
     <!-- ***** Breadcumb Area End ***** -->
 
+
+    <p class="container" style="margin-top: 100px; color: black;">
+        The behavior of host is very likely to influence the overall experience with the listings. In this page, we would like to explore the influence of 3 different types of host behavior on the popularity of listings : whether the host has he/her identity verified (host_identity_verified), how fast is the host responding to messages (host_response_time), and what is the rate of messages being responsed (host_response_rate).  The popularity of a listing is considred from two perspectives : the average rating scores attached with each review (review_scores_rating) and the availability of the listing throughout the year (availability365). The higher rating score, the more "popular" is the listing.  The larger number of available days throughout the year, the less "popular" is the listing.
+    </p>
+
     <!-- ***** Host Identity Verified vs Ratings ***** -->
     <section class="ids_host_viz section_padding_100_0">
         <div class="container">
@@ -179,7 +184,7 @@
             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
             vizElement.parentNode.insertBefore(scriptElement, vizElement);                
         </script>
-        <p class= "container">The above scatter plot shows the distribution airbnb listings until March 2018 regarding number of reviews per month (x-axis), reviews rating (y-axis) and number of reviews(the size of the circle).  Every circle in the figure represents an listing. The color of the circle is showing the year that the listing received its first review, which is an estimator for the posted time of the listing.  </p>
+        <p class= "container" style="margin-top: 10px; color:black;"> The two bar charts above show the different distrubition of ratings for listings with (the blue bars) and without (the organge bars) host identity verified. The length of the bars is encoding number of listings with ratings specified in the y-axis.  The difference in the two ratings distributions can lead us two conclusions regarding the effect of having host identity verified. Comparing the two bar charts, we can see that both of them are very skewed with most of the listings rated pretty highly. When the host identity is verified, there are more number of listings for each level of ratings. More importantly, the distribution are smoother in the range of 80-100 (review scores rating) with host identity verified, as the number of listings is strictly decreasing in this range for the blue chart.  Where as in the orange chart with host_identity_verified as false, the number of listings first decrease then increase as we go from higher to lower ratings.  This indicates that with identity verified, it is more likely for a listing to get higher rates as a larger  proportion of listings has score in (80, 100]. </p>
     </section>
     <!-- ***** Host Identity Verified vs Ratings End ***** -->
 
@@ -234,7 +239,7 @@
             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
             vizElement.parentNode.insertBefore(scriptElement, vizElement);                
         </script>
-        <p class= "container">The above scatter plot shows the distribution airbnb listings until March 2018 regarding number of reviews per month (x-axis), reviews rating (y-axis) and number of reviews(the size of the circle).  Every circle in the figure represents an listing. The color of the circle is showing the year that the listing received its first review, which is an estimator for the posted time of the listing.  </p>
+        <p class= "container" style="margin-top: 10px; color:black;"> The above visualization is investigating into the influence of respose time and response rate on ratings. Reponse time is categorized into 4 categories: within an hour (the shortest response time), within a few hours, within a day, a few days or more (the longest response time). The figure on the left shows box plot corresponding to each of the response time category. There is actually not much dependency between response time and the distribution of rating. While the figure on the right shows scatter plot of (host response rate, review scores rating), where the darker color encodes the higher response rate. We can see that as the response rate increase, the total number of listings increase with a denser distribution near the higher ratings end.  The two charts together show that the response rate is a more important factor than response time when predicting the possible rating of a listing. This is reasonable since the condition of listings could be more important than the time period that the host take to say yes.  The users may care more about whether or not the host has reponded instead of how quickly the host responded.  </p>
     </section>
      <!-- ***** Host Response Time and Response Rate vs Ratings End ***** -->
 
@@ -289,7 +294,8 @@
             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
             vizElement.parentNode.insertBefore(scriptElement, vizElement);                
         </script>
-        <p class= "container">The above scatter plot shows the distribution airbnb listings until March 2018 regarding number of reviews per month (x-axis), reviews rating (y-axis) and number of reviews(the size of the circle).  Every circle in the figure represents an listing. The color of the circle is showing the year that the listing received its first review, which is an estimator for the posted time of the listing.  </p>
+        <p class= "container" style="margin-top: 10px; color:black;"> The above visualization is investigating into the influence of respose time and response rate on availability 365, which is another factor to depict popularity of listings. Reponse time is categorized into 4 categories: within an hour (the shortest response time), within a few hours, within a day, a few days or more (the longest response time). The figure on the left shows box plot corresponding to distribution of listings availability in  each of the response time category. There is actually not obvious dependency between response time and the availability of listing throughout the year. While the figure on the right shows scatter plot of (host response rate, availability 365), where the blue color encodes the higher availability number, indicating less popular listings. The pink color indicates the lower availability number, indicating more popular listings.
+         We can see that as the response rate increase, the total number of listings increase. But there is no clear tendency towards high/low availability.  The two charts together show that response rate might not be an important factor for predicting availability throughout the year.</p>
     </section>
      <!-- ***** Host Response Time and Response Rate vs Availability 365 End ***** -->
    
