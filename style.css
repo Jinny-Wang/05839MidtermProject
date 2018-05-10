@@ -52,6 +52,7 @@ h6 {
     font-weight: 700;
     color: #404551;
     line-height: 1.2;
+    margin:1em;
 }
 
 a,
@@ -70,8 +71,8 @@ li {
 
 p {
     font-family: 'Roboto', sans-serif;
-    color: #abadbe;
-    font-size: 15px;
+    color: black;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 0;
     line-height: 1.9;
