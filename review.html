@@ -99,17 +99,88 @@
     </div>
     <!-- ***** Breadcumb Area End ***** -->
 
-    <!-- ***** Model Introduciton Starts ***** -->
-    <section class="ids_history_viz section_padding_100_0">
+    
+
+    <!-- ***** Summary Statistics Start ***** -->
+     <section class="section_padding_100_0">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
+            <div>
+                <div>
                     <div class="mosh-about-us-content">
                         <div class="section-heading">
-                            <p>History</p>
-                            <h2>How is the popularity of listing envolving over time?</h2>
+                            <p>Summary Statistics </p>
+
+                            <h2>Summary Statistics of the Review Text</h2>
                         </div>
+                        <p>The data we used in this analysis is from the site <a href="http://insideairbnb.com">inside airbnb.</a>  The review data contains 896208 reviews for 36938 listings. The review text itself is in multiple language and the majority language is English. The following figures show the summary statistics for the review data. In order to predict the rating attached to one listing, we aggregated all pieces of reviews for one listing together and treated the long aggregated reviews as one feature.</p>
+
+
+                        <h3> 1.Number of Reviews for Each Listings </h3>
+
+                        <p> <b>Mean</b> : 18.468701  | <b>Std</b> : 34.840286 |  <b>min</b> : 0.000000 | <b>25%</b> : 1.000000 | <b>50%</b> : 4.000000 | <b>75%</b> : 19.000000 | <b>max</b> : 521.000000 </p>
+
+                        <div class='tableauPlaceholder' id='viz1525919830329' style='position: relative'><noscript><a href='#'><img alt='Distribution of Number of Reviews ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;reviewssummarystatistics&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='reviewssummarystatistics&#47;Sheet2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;reviewssummarystatistics&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1525919830329');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                        <p> We can see that the distribution of number of reviews is very skewed. Almost 25% of the listings have no reviews at all.  There are only few number of listing with a lot of reviews. And most of the listings only has very little reviews. </p>
+
+                        <h3> 2.Review Length Before Aggregation </h3>
+                        <p> <b>Mean</b> : 321.373117  | <b>Std</b> : 291.717100 |  <b>min</b> : 1.000000 | <b>25%</b> : 128.000000 | <b>50%</b> : 246.000000 | <b>75%</b> : 420.000000 | <b>max</b> : 4664.000000 </p>
+                    
+                        <img src="img/reviews-img/review_length_noagg.png" alt="Distribution of Review Length before Aggregation">
+
+
+                        <h3> 3.Review Length After Aggregation </h3>
+                        <p> <b>Mean</b> :  7775.989306  | <b>Std</b> : 13158.281392 |  <b>min</b> : 1.000000 | <b>25%</b> : 742.250000 | <b>50%</b> : 2534.500000 | <b>75%</b> : 8657.500000 | <b>max</b> : 199224.000000</p>
+                        <img src="img/reviews-img/review_length_agg.png" alt="Distribution of Review Length after Aggregation">
                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="r">
+        </div>
+        <div id = "timeline">
+        </div>
+    </section>
+    <!-- ***** Summary Statistics  End ***** -->
+
+
+    <!-- ***** Data Preprocessing Starts ***** -->
+    <section class="section_padding_100_0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div>
+                    <div class="mosh-about-us-content">
+                        <div class="section-heading">
+                            <p>Data Preprocessing</p>
+                            <h2>Training: Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
+                        </div>
+                        <img src="img/reviews-img/cnnmodel.png" alt="cnnmodel">
+                        <p>The input to the network is the tokenized review text denoted as x, padded to the same length l. Then each word is passed through an embedding layer initialized with pretrained word vector using Word2Vec continuous bag-of-words model [Mikolov et al. 2013], which is trained on yelp’s review text to maximize the probability of the word given the surrounding context. The embedding layer will turn a word x i into a v i ∈ R d , which is vector of ﬂoating point number in our case. For the word that has never occurred in the vocabulary, we will simply use randomly generated word vector as its embedding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="scatter">
+        </div>
+        <div id = "timeline">
+        </div>
+    </section>
+    <!-- ***** Data Preprocessing End ***** -->
+
+
+
+    <!-- ***** Model Introduciton Starts ***** -->
+    <section class="cnn_introduction section_padding_100_0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div>
+                    <div class="mosh-about-us-content">
+                        <div class="section-heading">
+                            <p>Model Introduction</p>
+                            <h2>Training: Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
+                        </div>
+                        <img src="img/reviews-img/cnnmodel.png" alt="cnnmodel">
+                        <p>The input to the network is the tokenized review text denoted as x, padded to the same length l. Then each word is passed through an embedding layer initialized with pretrained word vector using Word2Vec continuous bag-of-words model [Mikolov et al. 2013], which is trained on yelp’s review text to maximize the probability of the word given the surrounding context. The embedding layer will turn a word x i into a v i ∈ R d , which is vector of ﬂoating point number in our case. For the word that has never occurred in the vocabulary, we will simply use randomly generated word vector as its embedding.</p>
                     </div>
                 </div>
             </div>
@@ -120,6 +191,8 @@
         </div>
     </section>
     <!-- ***** Model Introduciton Starts End ***** -->
+
+
 
     <section>
         <div class="row align-items-center" id="history_description">
@@ -228,8 +301,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/dc.js"></script>
     <!-- crossfilter js-->
     <script src="js/crossfilter.js"></script>
-    <!-- history js-->
-    <script src="history.js"></script>
+    
 </body>
 
 </html>
