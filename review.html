@@ -215,8 +215,7 @@
                             <p>Model Introduction</p>
                             <h2>Training: Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
                         </div>
-                        <img src="img/reviews-img/cnnmodel.png" alt="cnnmodel">
-                        <p>The input to the network is the tokenized review text denoted as x, padded to the same length l. Then each word is passed through an embedding layer initialized with pretrained word vector using Word2Vec continuous bag-of-words model [Mikolov et al. 2013], which is trained on yelp’s review text to maximize the probability of the word given the surrounding context. The embedding layer will turn a word x i into a v i ∈ R d , which is vector of ﬂoating point number in our case. For the word that has never occurred in the vocabulary, we will simply use randomly generated word vector as its embedding.</p>
+                        <svg id="loss_visualization" width="960" height="500"></svg>
                     </div>
                 </div>
             </div>
@@ -336,6 +335,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/dc.js"></script>
     <!-- crossfilter js-->
     <script src="js/crossfilter.js"></script>
+    <!-- review js-->
+    <script src="review.js"></script>
     
 </body>
 
