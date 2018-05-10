@@ -19,7 +19,55 @@
 
     <!-- Responsive CSS -->
     <link href="css/responsive.css" rel="stylesheet">
+    <style>
+        div.gallery {
+            border: 1px solid #ccc;
+        }
 
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: 100px;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .responsive {
+            padding: 0 6px;
+            float: left;
+            width: 24.99999%;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .responsive {
+                width: 49.99999%;
+                margin: 6px 0;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -43,7 +91,7 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
                             <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
-                                 <ul class="navbar-nav animated" id="nav">
+                                <ul class="navbar-nav animated" id="nav">
                                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="moshDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
@@ -85,7 +133,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumbContent">
-                        <h2>Using reviews to predict the rating of a listing based on Convolutional Neural Network.</h2>
+                        <h2>Using Listings' Metadata to Predict Ratings.</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
@@ -97,63 +145,157 @@
             </div>
         </div>
     </div>
-    <!-- ***** Breadcumb Area End ***** -->
 
-    <!-- ***** About Us Area Start ***** -->
-    <section class="ids_history_viz section_padding_100_0">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="mosh-about-us-content">
-                        <div class="section-heading">
-                            <p>History</p>
-                            <h2>How is the popularity of listing envolving over time?</h2>
+    <!-- ***** About Us Area End ***** -->
+    <section>
+        <div class="row align-items-center" id="history_description">
+            <div class="col-12">
+                <div class="mosh-about-us-content">
+                    <div class="section-heading">
+                        <h2>Data Preprocessing</h2>
+                        <h3>Dataset Overview</h3>
+                        <h3>Data Cleaning</h3>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/review_score_rating.png">
+      <img src="img/meta/review_score_rating.png" alt="review_score_rating" width="600px" height="400px">
+    </a>
+                                <div class="desc">Review Score Rating</div>
+                            </div>
                         </div>
-                        <!-- <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio ves tibul. Nec odio vestibulum est mattis effic iturut magna. Pellente sque sita met tellus blandit. Etiam nec odio. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p> -->
-                        
+
+
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/price.png">
+      <img src="img/meta/price.png" alt="Price" width="600px" height="400px">
+    </a>
+                                <div class="desc">Price</div>
+                            </div>
+                        </div>
+
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/num_reviews.png">
+      <img src="img/meta/num_reviews.png" alt="num_of_reviews" width="600px" height="400px">
+    </a>
+                                <div class="desc">Number of Reviews</div>
+                            </div>
+                        </div>
+
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/availability365.png">
+      <img src="img/meta/availability365.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Availability 365</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/weekly_price.png">
+      <img src="img/meta/weekly_price.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Weekly Price</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/reviews_per_month.png">
+      <img src="img/meta/reviews_per_month.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Reviews Per Month</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/host_response_rate.png">
+      <img src="img/meta/host_response_rate.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Host Response Rate</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/host_listing_count.png">
+      <img src="img/meta/host_listing_count.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Host Listing Count</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/security_deposit.png">
+      <img src="img/meta/security_deposit.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Security Deposit</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/is_location_exact.png">
+      <img src="img/meta/is_location_exact.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Is Location Exact</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/accommodates.png">
+      <img src="img/meta/accommodates.png" alt="availability365" width="600px" height="400px">
+    </a>
+                                <div class="desc">Accommodates</div>
+                            </div>
+                        </div>
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="img/meta/phone_verificarition.png">
+      <img src="img/meta/phone_verificarition.png" width="600px" height="400px">
+    </a>
+                                <div class="desc">Phone Verification</div>
+                            </div>
+                        </div>
+
+
+                        <h3>Feature Selection</h3>
+                        <img src="img/meta/correlation.png" alt="Correlation" style="height:auto;width:auto;">
                     </div>
                 </div>
-                <!-- <div class="col-12 col-md-6">
-                    <div class="mosh-about-us-thumb wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="img/bg-img/headpiece.png" alt="">
-                    </div>
-                </div> -->
             </div>
         </div>
-        <div id="scatter">
-        </div>
-        <div id = "timeline">
-        </div>
     </section>
-    <!-- ***** About Us Area End ***** -->
 
     <section>
         <div class="row align-items-center" id="history_description">
             <div class="col-12">
-                    <div class="mosh-about-us-content">
-                        <div class="section-heading">
-                            <h2>Visualizing ratings/reviews per month/number of reviews for listing posted in different years.</h2>
-                        </div>
-                        <p>The above scatter plot shows the distribution airbnb listings until March 2018 regarding number of reviews per month (x-axis), reviews rating (y-axis) and number of reviews(the size of the circle).  Every circle in the figure represents an listing. The color of the circle is showing the year that the listing received its first review, which is an estimator for the posted time of the listing.  </p>
-
-                        <p> Try dragging the timeline to see the distribution during different time periods in 10-year history! You can change the duration as you wish.  Observed that, when sliding from left to right, the listings distribution are more scattered apart especially in the x-direction.  Namely, the later-posted listings have more "number of reviews per month" as the Airbnb platform is getting more popular.   However, as we are sliding from older listings to newer listings, the circle sizes are getting smaller.  This can be intuitively explanied by how nubmer of reviews for listings is aggregating over time.</p>
-
-
-                         <p> You can zoom in to any area to see changes within certain ranges of ratings/reviwes per month. Detailed information for each listing is shown by hovering over the points. Most of the listings are prette highly rated with number of reviews per month less than 20. Very few listings get monthly review listings over 30.</p>
-                        
+                <div class="mosh-about-us-content">
+                    <div class="section-heading">
+                        <h2>Training and Testing</h2>
+                        <h3>Dataset Split</h3>
+                        <h3>Choosing the right algorithm</h3>
                     </div>
+                </div>
             </div>
-    </div>
-
         </div>
     </section>
-    
+
+    <section>
+        <div class="row align-items-center" id="history_description">
+            <div class="col-12">
+                <div class="mosh-about-us-content">
+                    <div class="section-heading">
+                        <h2>Evaluation</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
 
     <!-- ***** Footer Area Start ***** -->
-   <!-- ***** Footer Area Start ***** -->
+    <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area clearfix">
         <!-- Top Fotter Area -->
         <div class="top-footer-area section_padding_100_0">
@@ -169,11 +311,11 @@
                     <div class="col-12 col-sm-6  footer-description">
                         <div class="single-footer-widget mb-100 ">
                             <h5>Description</h5>
-                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University. We are investigating Airbnb listings data from New York City scraped in March 2018.  Three visualizations are provided in 3 pages to investigate into possible factors that influcence popularty of a listing.  The homepage is showing geolocation of the listings and its popularity. The history page is demonstrating the change of popularity over time.  The host page is looking into how the properties of Airbnb host will influence the listings.
+                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University. We are investigating Airbnb listings data from New York City scraped in March 2018. Three visualizations are provided in 3 pages to investigate into possible factors that influcence popularty of a listing. The homepage is showing geolocation of the listings and its popularity. The history page is demonstrating the change of popularity over time. The host page is looking into how the properties of Airbnb host will influence the listings.
                             </p>
                         </div>
                     </div>
-                
+
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-100">
                             <h5>Produced By</h5>
@@ -198,10 +340,15 @@
                     <div class="col-12 h-100">
                         <div class="footer-bottom-content h-100 d-md-flex justify-content-between align-items-center">
                             <div class="copyright-text">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>
+                                        document.write(new Date().getFullYear());
+
+                                    </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
                             </div>
                             <div class="footer-social-info">
                                 <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
