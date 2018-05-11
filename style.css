@@ -1888,6 +1888,17 @@ path.domain{
 .data_collection > p{
     color: #000000;
 }
+
+#review_visualization{
+    /*float:left;
+    margin-left:250px;*/
+    width: 2000px;
+    margin-right: 0px;
+}
+
+.parent_container{
+    display: flex;
+}
 /* --------------------------------
 ============= The End =============
 ---------------------------------*/
