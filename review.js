@@ -30,7 +30,7 @@ function plot_loss(){
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
-    console.log("height is"+height);
+  
     var train_tip  = d3.tip()
        .attr('class', 'd3-tip')
        .offset([-10, 0])
@@ -258,7 +258,7 @@ d3.csv("data/tran_loss.csv", function(d) {
     
     if (error) throw error;
   
-    console.log(data);
+
 
 
     g.append("path")
@@ -412,7 +412,7 @@ d3.csv("data/tran_loss.csv", function(d) {
 
     lineLegend.append("rect")
         .attr("fill", function (d, i) {
-          console.log(d);
+          //console.log(d);
           if (d=="Train Loss"){
             console.log("is train loss");
             return "#668cff";
@@ -444,7 +444,7 @@ var timeEnd = new Date(2015,11,14);
 
 function bubbleChart() {
 
-    var width = window.innerHeight+200;
+    var width = 1900;
     var height = window.innerHeight;
     // var width = 1080;
     // var height = 1000;
@@ -498,6 +498,12 @@ function bubbleChart() {
     //         .range([2,50]);
 
 
+
+    var font_colors = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', 
+                      '#98df8a',  '#d62728', '#ff9896', '#9467bd', '#c5b0d5', 
+                      '#8c564b', '#c49c94', '#e377c2', '#f7b6d2',  '#7f7f7f',
+                      '#c7c7c7','#bcbd22', '#dbdb8d', '#17becf',  '#9edae5'];
+
     function wordFreq(string) {
       var words = string.replace(/[.]/g, '').split(/\s/);
       var freqMap = {};
@@ -518,15 +524,29 @@ function bubbleChart() {
         freqMap[word] = freqMap[word].toFixed(2) / totalFreq.toFixed(2);
 
       }
-      console.log(freqMap);
+      // console.log(freqMap);
       return freqMap;
   }
 
+  function wordColors(freqMap){
+    var colorMap = {};
+    for (var word in freqMap){
+        var idx = Math.floor(Math.random() * 20);
+        //console.log(idx);
+        colorMap[word] = font_colors[idx];
+    }
+    return colorMap;
+  }
+
+
+
     function createNodes(rawData) {
+        
 
         var myNodes = rawData.map(function (d) {
 
             //'text', 'rating', 'id', 'predicted_rating', 'difference'
+            var freqMap = wordFreq(d.text);
             return {
                 id: d.id, //listing id
                 radius: radiusScale(+d.rating),
@@ -534,7 +554,9 @@ function bubbleChart() {
                 predicted_rating : +d.predicted_rating,
                 review : d.text,
                 difference : d.difference,
-                frequency : wordFreq(d.text),
+                frequency : freqMap,
+                wordColors : wordColors(freqMap),
+
                 x: Math.random() * window.innerWidth,
                 y: Math.random() * window.innerHeight
             };
@@ -656,16 +678,16 @@ function bubbleChart() {
 
 
     
+       
     function showWordCloud(d, selector){
-      var fill = d3.scale.category20();
+      
       var layout = d3.layout.cloud()
                    .size([500, 500])
                     .words(Object.keys(d.frequency).map(
                       function(e) {
-                        return {text: e, size: d.frequency[e]};
+                        return {text: e, size: d.frequency[e] , color: d.wordColors[e]} ;  
                       }))
                     .padding(5)
-                    .fontStyle("color", function(d) { return fill(d.text.toLowerCase()); })
                     .rotate(function() { return ~~(Math.random() * 2) * 90; })
                     .font("Impact")
                     .fontSize(function(d) { return 5000*d.size; })
