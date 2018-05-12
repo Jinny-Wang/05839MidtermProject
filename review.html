@@ -112,7 +112,7 @@
 
                             <h2>Summary Statistics of the Review Text</h2>
                         </div>
-                        <p>The data we used in this analysis is from the site <a href="http://insideairbnb.com">inside airbnb.</a>  The review data contains 896208 reviews for 36938 listings. The review text itself is in multiple language and the majority language is English. The following figures show the summary statistics for the review data. In order to predict the rating attached to one listing, we aggregated all pieces of reviews for one listing together and treated the long aggregated reviews as one feature.</p>
+                        <p>The data we used in this analysis is from the site <a href="http://insideairbnb.com">inside airbnb.</a>  The review data contains 896208 reviews for 36938 listings. The review text itself is in multiple language and the majority language is English. The analysis in this project is thus focusng on the English reviews. However, the reviews in other language are not discarded. The following figures show the summary statistics for the review data. In order to predict the rating attached to one listing, we aggregated all pieces of reviews for one listing together and treated the long aggregated reviews as one feature.</p>
 
 
                         <h3> 1.Number of Reviews for Each Listings </h3>
@@ -126,11 +126,13 @@
                         <p> <b>Mean</b> : 321.373117  | <b>Std</b> : 291.717100 |  <b>min</b> : 1.000000 | <b>25%</b> : 128.000000 | <b>50%</b> : 246.000000 | <b>75%</b> : 420.000000 | <b>max</b> : 4664.000000 </p>
                     
                         <img src="img/reviews-img/review_length_noagg.png" alt="Distribution of Review Length before Aggregation">
-
+                        <p> We can see that the review length distribution is also very skewed. There are limited number of reviews that is very long (over 2000 characters), and most of the reviews are very short. This actually poses the chanllenge of desigining proper models.  It is necessary to add padding and keep the review length fixed to a certain number or certain range for the model to generalize.  </p>
 
                         <h3> 3.Review Length After Aggregation </h3>
                         <p> <b>Mean</b> :  7775.989306  | <b>Std</b> : 13158.281392 |  <b>min</b> : 1.000000 | <b>25%</b> : 742.250000 | <b>50%</b> : 2534.500000 | <b>75%</b> : 8657.500000 | <b>max</b> : 199224.000000</p>
                         <img src="img/reviews-img/review_length_agg.png" alt="Distribution of Review Length after Aggregation">
+
+                        <p> After aggregation, the distribution of review length become even more skewed.  The reason is that we are aggregating two skewed distribution : the number of reviews and the review length.  Noted that y axis (number of reviews) becomes smaller as we are making the number of reviews per each listing to 1. However, the x-axis becomes larger as the aggregated review length becomes longer.  </p>
                         
                     </div>
                 </div>
@@ -154,16 +156,17 @@
                             <p>Data Preprocessing</p>
                             <h2>Preprocessing the Reveiw Text</h2>
                         </div>
-                        <p>In order to feed the reviews into the network .... </p>
+                        <p>In order to feed the reviews into the deep learning model, we did the following preprocessing to the review text to reduce noise and filter out redundant features such as stop words.  </p>
 
                         <h3>Step1: Aggregating reviews from the same listings.</h3>
                         <img src="img/reviews-img/aggregation.png" alt="aggregation">
 
-
+                        <p> As every piece of reviews attached to the same listing are all providing description regarding the listing, they can be viewed as equally important information source for rating prediction. So the sperated pieces of reviews are aggregated together as one large review. And the features used in this analysis is then the aggregated reviews. </p>
                         <h3> Step2 : Tokenization & Lemmatization </h3>
 
-
+                        <p>Then the long aggregated review is tokenized to a list of vocabulary.   And all transformation of verbs are removed. So the word representing the same meaining in different forms sun as "runs" and "ran" will be cast to the same vocabulary.  </p>
                         <h3> Step3 : Stopwords and Punctuation Removal </h3>
+                        <p>In order to reduce the vocabulary size and boost computational efficiency, stopwords such as "the" "a" "I" are removed from the review text. Moreover, punctuation that does not reflect sentiment such as full stop "." or comma "," are also removed.  However, "!" and "?" are kepted since these two punctuations are possibly giving information regarding the sentiment of the reviews.</p>
 
                         <img src="img/reviews-img/preprocessing.png" alt="preprocessing">
 
@@ -188,7 +191,9 @@
                             <h2>Training: Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
                         </div>
                         <img src="img/reviews-img/cnnmodel.png" alt="cnnmodel">
-                        <p>The input to the network is the tokenized review text denoted as x, padded to the same length l. Then each word is passed through an embedding layer initialized with pretrained word vector using Word2Vec continuous bag-of-words model [Mikolov et al. 2013], which is trained on yelp’s review text to maximize the probability of the word given the surrounding context. The embedding layer will turn a word x i into a v i ∈ R d , which is vector of ﬂoating point number in our case. For the word that has never occurred in the vocabulary, we will simply use randomly generated word vector as its embedding.</p>
+                        <p> We designed a convolutional neural network model to predict the rating of listing given its aggregated review text. The input to the network is the tokenized review text denoted as x, padded to the same length l. Then each word is passed through an embedding layer initialized with pretrained word vector using GloVE. The embedding layer will turn a word x into a 300 dimensional word vector, which is vector of ﬂoating point number in our case. For the word that has never occurred in the vocabulary, we will simply use randomly generated word vector as its embedding.</p>
+
+                        <p> Then the word vectors are passed to a combination of {1d convolutional layer , max pooling layer , drop out layer}.  There are 3 consecutive combination like this. And the filter size for each of the conlution layer are 3 ,4 and 5 respectively.  The output of the last convolutional layer is further fed into the fully connected layer, which is a set of linear layer with ReLU activation. And the final output of the network is the predicted rating for one listing.</p>
                     </div>
                 </div>
             </div>

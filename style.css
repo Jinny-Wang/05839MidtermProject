@@ -1899,6 +1899,10 @@ path.domain{
 .parent_container{
     display: flex;
 }
+
+#main-svg{
+    margin-left: 300px;
+}
 /* --------------------------------
 ============= The End =============
 ---------------------------------*/
