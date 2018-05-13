@@ -301,7 +301,7 @@
                         </div>
                     </div>
                     <h3>Choosing the right algorithm</h3>
-                    <p>We have tried three classification algorithms in <a href="https://www.cs.waikato.ac.nz/ml/weka/">WEKA</a>: logistic regression(1), k-Nearest Neighbors(2. IBk) and decision tree(3. REPTree), where logistic regression is the baseline. The following two graphs are the correlation and relative absolute error performance for the three algorithms over the five folds of stratified cross validation data and the cross validation data as a whole. From the graphs, we can see that the decision tree(3) significantly outperformed the other two algorithms in terms of both correlation and relative absolute error. </p>
+                    <p>We have tried three classifiers in <a href="https://www.cs.waikato.ac.nz/ml/weka/">WEKA</a>: logistic regression(1), k-Nearest Neighbors(2. IBk) and decision tree(3. REPTree), where logistic regression is the baseline. The following two graphs are the correlation and relative absolute error performance for the three algorithms over the five folds of stratified cross validation data and the cross validation data as a whole. From the graphs, we can see that the decision tree(3) significantly outperformed the other two algorithms in terms of both correlation and relative absolute error. </p>
                     <div class="responsive" style="width: 50%">
                         <div class="gallery">
                             <a target="_blank" href="img/meta/para_correlation.png">
@@ -319,7 +319,7 @@
                         </div>
                     </div>
 
-                    <h3>Turning Parameters</h3>
+                    <h3>Tuning Parameters</h3>
                     <p>We then tuned the two parameters of minNum of instances in a split and the depth of the tree in order to find out a good parameter setting for decision tree. The settings we have tried in order are (minNum, tree_depth) = {(2, -1), (2,17), (2,54), (140, 1), (140, 27), (140, 54)}. From the following two graphs, for both correlation and relative absolute error, none of the parameter settings beat the baseline setting (WEKA will automatically calculate if the other parameter settings beat the baseline setting and mark them as v). Therefore, we will choose the decision tree model with default setting, i.e. (minNum, tree_depth) = (2, -1) (-1 means there is no limitation on the depth of the tree). </p>
                     <div class="responsive" style="width: 100%">
                         <div class="gallery">
