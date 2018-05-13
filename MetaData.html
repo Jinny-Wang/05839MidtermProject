@@ -87,6 +87,7 @@
             display: table;
             clear: both;
         }
+
     </style>
 </head>
 
@@ -168,188 +169,193 @@
 
     <!-- ***** About Us Area End ***** -->
     <section>
-        <div class="row align-items-center" id="history_description">
+        <div class="row align-items-center" id="history_description_new">
             <div class="col-12">
                 <div class="mosh-about-us-content">
-                    <div class="section-heading">
-                        <h2>Data Preprocessing</h2>
-                        <h3>Dataset Overview</h3>
-                        <p>The dataset we used in this analysis is from the site <a href="http://insideairbnb.com/">Inside Airbnb</a>. The listing meta data consists of 36938 listings with 96 features, including neighborhood information like neighborhood overview, availability information like available days in 30, 60 and 365, host information like host response rate, the total listing count of the host, host identify verfication and review information like review score rating etc. </p>
-                        <h3>Data Cleaning</h3>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/review_score_rating.png">
+                    <!--                    <div class="section-heading">-->
+                    <h2>Data Preprocessing</h2>
+                    <!--                    </div>-->
+                    <h3>Dataset Overview</h3>
+                    <p>The dataset we used in this analysis is from the site <a href="http://insideairbnb.com/">Inside Airbnb</a>. The listing meta data consists of 36938 listings with 96 features, including neighborhood information like neighborhood overview, availability information like available days in 30, 60 and 365, host information like host response rate, the total listing count of the host, host identify verfication and review information like review score rating etc. </p>
+                    <h3>Data Cleansing</h3>
+                    <p>In order to feed the data into <a href="https://www.cs.waikato.ac.nz/ml/weka/">WEKA</a>, I did the following data cleansing step: </p>
+                    <p>1. Transforming norminal features into multi-dimensional binary features.</p>
+                    <p>2. Interpolationg missing data with the mean of the corresponding features. </p>
+                    <p>3. Removing duplicate listing instances with the same listing id.</p>
+
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/review_score_rating.png">
       <img src="img/meta/review_score_rating.png" alt="review_score_rating" width="600px" height="400px">
     </a>
-                                <div class="desc">Review Score Rating</div>
-                            </div>
+                            <div class="desc">Review Score Rating</div>
                         </div>
+                    </div>
 
 
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/price.png">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/price.png">
       <img src="img/meta/price.png" alt="Price" width="600px" height="400px">
     </a>
-                                <div class="desc">Price</div>
-                            </div>
+                            <div class="desc">Price</div>
                         </div>
+                    </div>
 
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/num_reviews.png">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/num_reviews.png">
       <img src="img/meta/num_reviews.png" alt="num_of_reviews" width="600px" height="400px">
     </a>
-                                <div class="desc">Number of Reviews</div>
-                            </div>
+                            <div class="desc">Number of Reviews</div>
                         </div>
+                    </div>
 
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/availability365.png">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/availability365.png">
       <img src="img/meta/availability365.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Availability 365</div>
-                            </div>
+                            <div class="desc">Availability 365</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/weekly_price.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/weekly_price.png">
       <img src="img/meta/weekly_price.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Weekly Price</div>
-                            </div>
+                            <div class="desc">Weekly Price</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/reviews_per_month.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/reviews_per_month.png">
       <img src="img/meta/reviews_per_month.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Reviews Per Month</div>
-                            </div>
+                            <div class="desc">Reviews Per Month</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/host_response_rate.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/host_response_rate.png">
       <img src="img/meta/host_response_rate.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Host Response Rate</div>
-                            </div>
+                            <div class="desc">Host Response Rate</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/host_listing_count.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/host_listing_count.png">
       <img src="img/meta/host_listing_count.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Host Listing Count</div>
-                            </div>
+                            <div class="desc">Host Listing Count</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/security_deposit.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/security_deposit.png">
       <img src="img/meta/security_deposit.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Security Deposit</div>
-                            </div>
+                            <div class="desc">Security Deposit</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/is_location_exact.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/is_location_exact.png">
       <img src="img/meta/is_location_exact.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Is Location Exact</div>
-                            </div>
+                            <div class="desc">Is Location Exact</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/accommodates.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/accommodates.png">
       <img src="img/meta/accommodates.png" alt="availability365" width="600px" height="400px">
     </a>
-                                <div class="desc">Accommodates</div>
-                            </div>
+                            <div class="desc">Accommodates</div>
                         </div>
-                        <div class="responsive">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/phone_verificarition.png">
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/phone_verificarition.png">
       <img src="img/meta/phone_verificarition.png" width="600px" height="400px">
     </a>
-                                <div class="desc">Phone Verification</div>
-                            </div>
+                            <div class="desc">Phone Verification</div>
                         </div>
-
-
-                        <h3>Feature Selection</h3>
-                        <img src="img/meta/correlation.png" alt="Correlation" style="height:auto;width:auto;">
                     </div>
+
+
+                    <h3>Feature Selection</h3>
+                    <p>Before performing feature selection, I first investigate the dependency of the 96 features in <a href="https://www.cs.waikato.ac.nz/ml/weka/">WEKA</a> by visualizing the pairwise correlation of the features. A snapshot of the correlation graph is shown below. From the graph we can see that there is no strong correlation between any of the two features, indicating that the features are mostly independent. </p>
+                    <p>Based on the independence of the features, You can calculate the information gain (also called entropy) for each attribute for the output variable with InfoGainAttributeEval Attribute Evaluator in <a href="https://www.cs.waikato.ac.nz/ml/weka/">WEKA</a>. Entry values vary from 0 (no information) to 1 (maximum information). Those attributes that contribute more information will have a higher information gain value and can be selected, whereas those that do not add much information will have a lower score and can be removed.</p>
+                    <img src="img/meta/correlation.png" alt="Correlation" style="height:auto;width:auto;">
                 </div>
             </div>
         </div>
     </section>
 
     <section>
-        <div class="row align-items-center" id="history_description">
+        <div class="row align-items-center" id="history_description_new">
             <div class="col-12">
-                <div class="mosh-about-us-content">
-                    <div class="section-heading">
-                        <h2>Training and Testing</h2>
-                        <h3>Spliting the dataset</h3>
-                        <h3>Choosing the right algorithm</h3>
-                        <div class="responsive" style="width: 50%">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/para_correlation.png">
+                <div class="mosh-about-us-content" id="graphs">
+                    <!--                    <div class="section-heading">-->
+                    <h2>Training and Testing</h2>
+                    <h3>Spliting the dataset</h3>
+                    <p>The dataset is split into three parts: 20% development set for data exploration and feature engineering, 70% cross validation data for choosing the right algorithm and parameter tuning, 10% final testing set for evaluating the performance of the final model. </p>
+                    <div class="responsive" style="width: 100%">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/data_split.png">
+      <img src="img/meta/data_split.png" style="width:auto;height: 200px; align-items: center; align-content: center;">
+    </a>
+                            <div class="desc">Data Split</div>
+                        </div>
+                    </div>
+                    <h3>Choosing the right algorithm</h3>
+                    <p>I tried three classification algorithms in <a href="https://www.cs.waikato.ac.nz/ml/weka/">WEKA</a>: logistic regression(1), k-Nearest Neighbors(2. IBk) and decision tree(3. REPTree), where logistic regression is the baseline. The following two graphs are the correlation and relative absolute error performance for the three algorithms over the five folds of stratified cross validation data and the cross validation data as a whole. From the graphs, we can see that the decision tree(3) significantly outperformed the other two algorithm in terms of both correlation and relative absolute error. </p>
+                    <div class="responsive" style="width: 50%">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/para_correlation.png">
       <img src="img/meta/para_correlation.png" style="width:auto;height: 200px; align-items: center">
     </a>
-                                <div class="desc">Correlation</div>
-                            </div>
+                            <div class="desc">Correlation</div>
                         </div>
-                        <div class="responsive" style="width: 50%">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/RAE.png">
+                    </div>
+                    <div class="responsive" style="width: 50%">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/RAE.png">
       <img src="img/meta/RAE.png" style="width:auto;height: 200px;align-self: center">
     </a>
-                                <div class="desc">Relative Absolute Error</div>
-                            </div>
+                            <div class="desc">Relative Absolute Error</div>
                         </div>
+                    </div>
 
-                        <h3>Turning Parameters</h3>
-                        <div class="responsive" style="width: 100%">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/correlation_tuning.png">
+                    <h3>Turning Parameters</h3>
+                    <p>I then tuned the two parameter of minNum of instances in a split and the depth of the tree. The settings I have tried in order are (minNum, tree_depth) = {(2, -1), (2,17), (2,54), (140, 1), (140, 27), (140, 54)}. From the following two graphs, for both correlation and relative absolute error, none of the parameter settings beat the baseline setting (WEKA will automatically calculate if the other parameter settings beat the baseline setting and mark them as *). Therefore, I will choose the baseline model with default setting, i.e. (minNum, tree_depth) = (2, -1). </p>
+                    <div class="responsive" style="width: 100%">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/correlation_tuning.png">
       <img src="img/meta/correlation_tuning.png" style="width:auto;height: 200px; align-self: center">
     </a>
-                                <div class="desc">Correlation Across Different Parameter Settings</div>
-                            </div>
+                            <div class="desc">Correlation Across Different Parameter Settings</div>
                         </div>
+                    </div>
 
-                        <div class="responsive" style="width: 100%">
-                            <div class="gallery">
-                                <a target="_blank" href="img/meta/para_tuning.png">
+                    <div class="responsive" style="width: 100%">
+                        <div class="gallery">
+                            <a target="_blank" href="img/meta/para_tuning.png">
       <img src="img/meta/para_tuning.png" style="width:auto;height: 200px; align-self: center">
     </a>
-                                <div class="desc">Relative Absolute Error Across Different Parameter Settings</div>
-                            </div>
+                            <div class="desc">Relative Absolute Error Across Different Parameter Settings</div>
                         </div>
-
-
-
                     </div>
+
+
+
                 </div>
             </div>
         </div>
+        <!--        </div>-->
     </section>
-
-    <section>
-        <div class="row align-items-center" id="history_description">
-            <div class="col-12">
-                <div class="mosh-about-us-content">
-                    <div class="section-heading">
-                        <h2>Data Insights</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
 
 
@@ -404,6 +410,7 @@
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
+
                                     </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
