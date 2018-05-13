@@ -213,6 +213,7 @@
                             <h2>Training: Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
                         </div>
                         <svg id="loss_visualization" width="960" height="500"></svg>
+                        <p>The model is written using Pytorch.  Mean Square Error Loss and Adam optimizer with learning rate 0.001 are used as the loss function and optimizer during the trianing process. The model is trained 10 epoches on a Amazon EC2 deep learning instance with GPU enabled. The train loss and validation loss are shown in the figure above.  We can see that the train loss is continuously dropping as the trainig time becomes longer. The validation loss reach its minimum within the first epoch.</p>
                     </div>
                 </div>
             </div>
@@ -229,18 +230,20 @@
                     <div class="mosh-about-us-content">
                         <div class="section-heading">
                             <p>Prediction Visualization</p>
-                            <h2>Visualizing Prediction on 300 sampled Listings.</h2>
+                            <h2>Visualizing Prediction on 185 sampled Listings.</h2>
                         </div>
                         
+                        <p> </p>
                     </div>
                 </div>
             </div>
+            <div class="parent_container">
+                <div id="review_visualization"></div>
+                <div id="detail"></div>
+            </div>
             
         </div>
-    <div class="parent_container">
-        <div id="review_visualization"></div>
-         <div id="detail"></div>
-    </div>
+    
     </section>
 
      
