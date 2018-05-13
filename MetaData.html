@@ -20,6 +20,27 @@
     <!-- Responsive CSS -->
     <link href="css/responsive.css" rel="stylesheet">
     <style>
+        /*
+        .section-heading p {
+            text-transform: lowercase;
+            font-family: 'Roboto';
+            color: black;
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 0;
+            line-height: 1.9;
+        }
+*/
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 0;
+            line-height: 1.9;
+        }
+
         div.gallery {
             border: 1px solid #ccc;
         }
@@ -66,7 +87,6 @@
             display: table;
             clear: both;
         }
-
     </style>
 </head>
 
@@ -154,6 +174,7 @@
                     <div class="section-heading">
                         <h2>Data Preprocessing</h2>
                         <h3>Dataset Overview</h3>
+                        <p>The dataset we used in this analysis is from the site <a href="http://insideairbnb.com/">Inside Airbnb</a>. The listing meta data consists of 36938 listings with 96 features, including neighborhood information like neighborhood overview, availability information like available days in 30, 60 and 365, host information like host response rate, the total listing count of the host, host identify verfication and review information like review score rating etc. </p>
                         <h3>Data Cleaning</h3>
                         <div class="responsive">
                             <div class="gallery">
@@ -299,7 +320,7 @@
                                 <div class="desc">Correlation Across Different Parameter Settings</div>
                             </div>
                         </div>
-                        
+
                         <div class="responsive" style="width: 100%">
                             <div class="gallery">
                                 <a target="_blank" href="img/meta/para_tuning.png">
@@ -383,7 +404,6 @@
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-
                                     </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
