@@ -37,7 +37,7 @@
                     <div class="menu_area h-100">
                         <nav class="navbar h-100 navbar-expand-lg align-items-center">
                             <!-- Logo -->
-                            <a class="navbar-brand" href="index.html">05839 Midterm Project</a>
+                            <a class="navbar-brand" href="index.html">05839 Final Project</a>
 
                             <!-- Menu Area -->
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -51,13 +51,16 @@
                                             <a class="dropdown-item" href="index.html">Home</a>
                                             <a class="dropdown-item" href="history.html">History</a>
                                             <a class="dropdown-item" href="host.html">Host</a>
+                                            <a class="dropdown-item" href="review.html">Reviews</a>
+                                            <a class="dropdown-item" href="MetaData.html">Meta Data</a>
                                             <a class="dropdown-item" href="data.html">Data Collection</a>
                                             <div class="dropdown-divider"></div>
-                                        
                                         </div>
                                     </li>
                                     <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
                                     <li class="nav-item"><a class="nav-link" href="host.html">Host</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="review.html">Reviews</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="MetaData.html">Meta Data</a></li>
                                     <li class="nav-item active"><a class="nav-link" href="data.html">Data Collection</a></li>
                                 </ul>
                                 <!-- Search Form Area Start -->
@@ -100,19 +103,19 @@
     <section class="ids_data_correct section_padding_100_0">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-md-6">
+                <div class="col-12">
                     <div class="mosh-about-us-content">
 
                         <div class="data_collection">
                             
                             <h2>Data Source</h2>
-                            <p>The listings data are downloaded from <a href="http://insideairbnb.com">inside airbnb.</a> We choose to analyze data from the New York City scrapted at March 4th 2018, which contains 48852 listings across NYC.  For computational efficiency only top 3000 listings are chosen for visualization. </p>
+                            <p>The listings data are downloaded from <a href="http://insideairbnb.com">inside airbnb.</a> We choose to analyze data from the New York City scrapted at March 4th 2018, which contains 48852 listings across NYC.  For computational efficiency only top 3000 listings are chosen for visualization in the host and history page. </p>
                             <p>Apart from the listings data, we also scraped data about things-to-do in NYC, including the top 30  places for food , sightseeing, nightlife , nature and park. The data are obtaind from Airbnb's recommendation <a href="https://airbnb.com/things-to-do/new-york">here</a>. </p>
                         </div>
                         <div class="data_collection">
                             
                             <h2>Correctness</h2>
-                            <p>There are no invalid values in the listings data and things-to-do data. The numbers fields are in resonable range. </p>
+                            <p>There are no invalid values in the listings data and things-to-do data. The numbers fields are in resonable range. For the review_score_rating field, which is what we are trying to predict, all the values are in the range of 0 to 100.  </p>
                         </div>
 
                         <div class="data_collection">
@@ -159,41 +162,7 @@
     </section>
     <!-- ***** About Us Area End ***** -->
 
-    
-
-    <!-- ***** Few Words Area Start ***** -->
-    <!-- <section class="few-words-from-ceo d-md-flex">
-        <div class="few-words-contents d-flex align-items-center justify-content-center wow fadeInLeftBig" data-wow-delay="0.1s">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-11 col-lg-9 col-xl-7">
-                        <div class="few-words-text">
-                            <div class="section-heading">
-                                <p>Features</p>
-                                <h2>Fun facts about the team and why people love us</h2>
-                            </div>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio ves tibul. Nec odio vestibulum est mattis effic iturut magna. Pellente sque sita met tellus blandit. Etiam nec odio.</p>
-                            <div class="ceo-meta-data d-flex align-items-center mt-50">
-                                <div class="ceo-thumb bg-img" style="background-image: url(img/bg-img/ceo.jpg);"></div>
-                                <div class="ceo-name">
-                                    <h6>Jim Morison</h6>
-                                    <p>Company CEO</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="few-words-thumb bg-img wow fadeInRightBig" data-wow-delay="1.1s" style="background-image: url(img/bg-img/cta-2.jpg);"></div>
-    </section> -->
-    <!-- ***** Few Words Area End ***** -->
-
-
-
-    <!-- ***** Footer Area Start ***** -->
-   <!-- ***** Footer Area Start ***** -->
-    <footer class="footer-area clearfix">
+  <footer class="footer-area clearfix">
         <!-- Top Fotter Area -->
         <div class="top-footer-area section_padding_100_0">
             <div class="container">
@@ -201,14 +170,14 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-100">
                             <a href="#" class="mb-50 d-block footer-custom">Interactive Data Science @CMU</a>
-                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University.</p>
+                            <p>This is the project for 05-839 Interactive Data Science course at Carnegie Mellon University.</p>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6  footer-description">
                         <div class="single-footer-widget mb-100 ">
                             <h5>Description</h5>
-                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University. We are investigating Airbnb listings data from New York City scraped in March 2018.  Three visualizations are provided in 3 pages to investigate into possible factors that influcence popularty of a listing.  The homepage is showing geolocation of the listings and its popularity. The history page is demonstrating the change of popularity over time.  The host page is looking into how the properties of Airbnb host will influence the listings.
+                            <p>This the final project for 05-839 Interactive Data Science course at Carnegie Mellon University. We are investigating Airbnb listings data from New York City scraped in March 2018.  Analysis regarding the influence of geolocation, history, host profile , other metadata and reviews text are performed using interative visualizations. The homepage is showing geolocation of the listings and its popularity. The history page is demonstrating the change of popularity over time.  The host page is looking into how the properties of Airbnb host will influence the listings. The review page is investigating the influence of review text on rating, which the meta data page is looking into the predictive effects brought by meta data of a listing such as bedroom types.
                             </p>
                         </div>
                     </div>
@@ -216,9 +185,6 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-100">
                             <h5>Produced By</h5>
-                            <div class="footer-single-contact-info d-flex">
-                                <p>Dhruv Shah</p>
-                            </div>
                             <div class="footer-single-contact-info d-flex">
                                 <p>Jingyu Wang</p>
                             </div>
