@@ -444,10 +444,10 @@ var timeEnd = new Date(2015,11,14);
 
 function bubbleChart() {
 
-    var width = 1900;
-    var height = window.innerHeight;
-    // var width = 1080;
-    // var height = 1000;
+    // var width = 1900;
+    // var height = window.innerHeight;
+    var width = 1080;
+    var height = 1000;
     var tooltip = floatingTooltip('gates_tooltip', 240);
 
     var center = { x: width / 2-50, y: height / 2 };
@@ -479,7 +479,7 @@ function bubbleChart() {
     var force = d3.layout.force()
             .size([width, height])
             .charge(charge)
-            .gravity(1)
+            .gravity(0.80)
             .friction(0.95);
 
 
@@ -492,7 +492,7 @@ function bubbleChart() {
     //encode the rating
     var radiusScale = d3.scale.pow()
             .exponent(2)
-            .range([20, 120]);
+            .range([20, 100]);
     // var linearRadiusScale = d3.scale.linear()
     //         .domain([0,100])
     //         .range([2,50]);
@@ -877,7 +877,7 @@ $(document).ready(function() {
 
   plot_loss();  
   //load data
-  d3.csv('data/reviews_rating_predicted_sample.csv', display);
+  d3.csv('data/reviews_rating_predicted_sample_150.csv', display);
 });
 
 

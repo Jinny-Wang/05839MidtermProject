@@ -188,7 +188,7 @@
                     <div class="mosh-about-us-content">
                         <div class="section-heading">
                             <p>Model Introduction</p>
-                            <h2>Training: Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
+                            <h2>Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
                         </div>
                         <img src="img/reviews-img/cnnmodel.png" alt="cnnmodel">
                         <p> We designed a convolutional neural network model to predict the rating of listing given its aggregated review text. The input to the network is the tokenized review text denoted as x, padded to the same length l. Then each word is passed through an embedding layer initialized with pretrained word vector using GloVE. The embedding layer will turn a word x into a 300 dimensional word vector, which is vector of ﬂoating point number in our case. For the word that has never occurred in the vocabulary, we will simply use randomly generated word vector as its embedding.</p>
@@ -209,10 +209,11 @@
                 <div>
                     <div class="mosh-about-us-content">
                         <div class="section-heading">
-                            <p>Model Introduction</p>
-                            <h2>Training: Using Convolutional Neural Network to Predict Ratings using Review Text</h2>
+                            <p>Training Process</p>
+                            <h2>How is the model learning? </h2>
                         </div>
                         <svg id="loss_visualization" width="960" height="500"></svg>
+                        <p>The model is written using Pytorch.  Mean Square Error Loss and Adam optimizer with learning rate 0.001 are used as the loss function and optimizer during the trianing process. The model is trained 10 epoches on a Amazon EC2 deep learning instance with GPU enabled. The train loss and validation loss are shown in the figure above.  We can see that the train loss is continuously dropping as the trainig time becomes longer. The minimum training error can reach around 10, indicating a error of 3 points in rating on average. The validation loss reach its minimum of around 100 within the first epoch, indicating the prediction error of around 10 on average. Noted that the range of rating is from 0 to 100. </p>
                     </div>
                 </div>
             </div>
@@ -229,18 +230,20 @@
                     <div class="mosh-about-us-content">
                         <div class="section-heading">
                             <p>Prediction Visualization</p>
-                            <h2>Visualizing Prediction on 300 sampled Listings.</h2>
+                            <h2>Visualizing Prediction on 185 sampled Listings.</h2>
                         </div>
                         
+                         <p> To illustrate the effect of the learned CNN model, 185 reviews are sampled from the testing set. Each of the bubble above represents a review. The size of the bubble indicates the orginal rating. The larger the size, the higher the original rating. We can see form the sample that most of the listings are highly rated with a score above 90.  The color of the bubble indicates the deviation between the original rating and the model prediction.  Red is encoding a larger difference, while green is indicating smaller difference. We can see that most of the redder bubble are the smaller bubble, which indicates that the model is not working well for the listing with low rating. While modst of the green bubble are the larger bubble, which indicates that the model is predicting well for the highly rated listings. We can have a look at the word cloud of each review by hovering over a bubble.  The size of the word is representing the normalized frequency in the tokenized aggregated reveiws. So we can have a general picture about what's being talked about in the reviews for a specific listing.</p>
                     </div>
                 </div>
             </div>
+            <div class="parent_container">
+                <div id="review_visualization"></div>
+                <div id="detail"></div>
+            </div>
             
         </div>
-    <div class="parent_container">
-        <div id="review_visualization"></div>
-         <div id="detail"></div>
-    </div>
+    
     </section>
 
      
@@ -251,8 +254,6 @@
    
     
 
-
-    <!-- ***** Footer Area Start ***** -->
    <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area clearfix">
         <!-- Top Fotter Area -->
@@ -262,14 +263,14 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-100">
                             <a href="#" class="mb-50 d-block footer-custom">Interactive Data Science @CMU</a>
-                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University.</p>
+                            <p>This is the project for 05-839 Interactive Data Science course at Carnegie Mellon University.</p>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6  footer-description">
                         <div class="single-footer-widget mb-100 ">
                             <h5>Description</h5>
-                            <p>This is a midterm project for 05-839 Interactive Data Science course at Carnegie Mellon University. We are investigating Airbnb listings data from New York City scraped in March 2018.  Three visualizations are provided in 3 pages to investigate into possible factors that influcence popularty of a listing.  The homepage is showing geolocation of the listings and its popularity. The history page is demonstrating the change of popularity over time.  The host page is looking into how the properties of Airbnb host will influence the listings.
+                            <p>This the final project for 05-839 Interactive Data Science course at Carnegie Mellon University. We are investigating Airbnb listings data from New York City scraped in March 2018.  Analysis regarding the influence of geolocation, history, host profile , other metadata and reviews text are performed using interative visualizations. The homepage is showing geolocation of the listings and its popularity. The history page is demonstrating the change of popularity over time.  The host page is looking into how the properties of Airbnb host will influence the listings. The review page is investigating the influence of review text on rating, which the meta data page is looking into the predictive effects brought by meta data of a listing such as bedroom types.
                             </p>
                         </div>
                     </div>
@@ -277,9 +278,6 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-100">
                             <h5>Produced By</h5>
-                            <div class="footer-single-contact-info d-flex">
-                                <p>Dhruv Shah</p>
-                            </div>
                             <div class="footer-single-contact-info d-flex">
                                 <p>Jingyu Wang</p>
                             </div>
